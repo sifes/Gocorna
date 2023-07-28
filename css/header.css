@@ -1,0 +1,139 @@
+.header {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+}
+.header__wrapper {
+	min-height: 114px;
+	display: flex;
+	align-items: center;
+}
+.header__container {
+	position: relative;
+}
+@media (min-width: 491.98px) {
+	.header {
+		position: relative;
+	}
+
+	.header__container::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 80%; /* 805/1087 */
+		background: #ec5863;
+		border-radius: 30px 0px 0px 0px;
+		height: 100%;
+		width: 100vh;
+	}
+	.header__btn {
+		position: relative;
+		z-index: 1000;
+	}
+}
+.header__logo {
+	flex: 0 0 140px;
+	height: 40px;
+	display: inline-flex;
+}
+
+.menu-header {
+	display: flex;
+	text-align: center;
+	gap: 40px;
+	padding: 0 160px 0 30px;
+	flex: 1 1 auto;
+	justify-content: flex-end;
+}
+
+.menu-header__item {
+	display: block;
+	position: relative;
+}
+.menu-header__item::after {
+	transition: all 0.2s ease-in;
+	position: absolute;
+	content: '';
+	display: block;
+	height: 2px;
+	background-color: #ec5863;
+	top: 100%;
+	left: 0;
+	width: 0px;
+	z-index: 2;
+	transform: translate(0, 100%);
+}
+.menu-header__item:hover::after {
+	width: 100%;
+}
+.menu-header__item:hover {
+	color: #4285f4;
+}
+.menu-header__link {
+	font-weight: 700;
+	font-size: 10px;
+	line-height: 1.2;
+	letter-spacing: 0.14em;
+	color: #000000;
+}
+
+@media (max-width: 991.98px) {
+	.menu-header {
+		gap: 30px;
+		padding: 0 100px 0 30px;
+	}
+	.header__wrapper {
+		min-height: 90px;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.menu-header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000000;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease-in-out;
+		z-index: 1001;
+	}
+	body.burger-active .menu-header {
+		transform: translateX(0);
+	}
+
+	.header__logo {
+		flex: 1 1 140px;
+	}
+	.header__btn {
+		margin-right: 25px;
+	}
+	.menu-header__link {
+		font-size: 24px;
+		padding: 15px;
+	}
+	.hamburger-button {
+		position: relative;
+		z-index: 1002;
+	}
+}
+
+@media (max-width: 350.98px) {
+	.header__logo {
+		flex: 0 1 40px;
+		overflow: hidden;
+	}
+	.header__logo img {
+		max-width: unset;
+	}
+	.header__btn {
+		margin-left: auto;
+	}
+}
